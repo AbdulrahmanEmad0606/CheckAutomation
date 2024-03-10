@@ -1,11 +1,10 @@
 package UnitTest;
 
-import CoreElements.Alert;
 import GlobalSetup.GlobalSetup;
 import LoginTest.LoginTests;
-import Pages.CreateUnitPage;
-import Pages.UnitDetailsPage;
-import Pages.UnitsPage;
+import Pages.UnitPages.CreateUnitPage;
+import Pages.UnitPages.UnitDetailsPage;
+import Pages.UnitPages.UnitsPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;

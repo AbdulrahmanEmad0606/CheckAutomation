@@ -2,7 +2,7 @@ package UnitTest;
 
 import GlobalSetup.GlobalSetup;
 import LoginTest.LoginTests;
-import Pages.UnitsPage;
+import Pages.UnitPages.UnitsPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;

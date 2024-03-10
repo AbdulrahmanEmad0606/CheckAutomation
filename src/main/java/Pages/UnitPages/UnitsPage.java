@@ -1,12 +1,8 @@
-package Pages;
+package Pages.UnitPages;
 
-import CoreElements.Button;
-import CoreElements.Image;
-import CoreElements.Link;
-import CoreElements.TextBox;
+import CoreElements.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.w3c.dom.Text;
 
 public class UnitsPage {
     private WebDriver driver;
@@ -23,9 +19,9 @@ public class UnitsPage {
     Link unitName=new Link(By.cssSelector(".name .trigger-spinner"));
     Button settingIcon=new Button(By.xpath("//tr[1]/td[5]"));
     Button editButton=new Button(By.xpath("//tr[1]/td[5]/div/div/form/button"));
-    Button deleteButton=new Button(By.xpath("//*[@id=\"pagination-table\"]/tbody/tr[1]/td[5]/div/div/button[1]"));
+    Button toggleButton=new Button(By.xpath("//*[@id=\"pagination-table\"]/tbody/tr[1]/td[5]/div/div/button[1]"));
+    Button approveMsg=new Button(By.className("swal2-confirm"));
     /*** Unit page actions***/
-
     /*** Get logo ***/
     public boolean checkLogoAvailability() {
         logo.getPath();
@@ -43,10 +39,6 @@ public class UnitsPage {
     public void setValidSearchTerm(String searchTerm) {
         searchInput.typeText(searchTerm);
     }
-    public void setInvalidSearchTerm(String searchTerm) {
-        searchInput.typeText(searchTerm);
-    }
-
     public void clickSearch() {
         searchButton.click();
     }
@@ -65,8 +57,11 @@ public class UnitsPage {
         editButton.click();
         return new EditUnitPage(driver);
     }
+    /***get toggle activation Button***/
     public void toggleActivateUnit(){
         settingIcon.click();
-        deleteButton.click();
+        toggleButton.click();
+        approveMsg.click();
     }
+
 }

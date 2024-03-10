@@ -1,4 +1,4 @@
-package Pages;
+package Pages.UnitPages;
 
 import CoreElements.Button;
 import CoreElements.TextBox;

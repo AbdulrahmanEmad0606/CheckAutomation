@@ -2,7 +2,7 @@ package LoginTest;
 
 import GlobalSetup.GlobalSetup;
 import Pages.LoginPage;
-import Pages.UnitsPage;
+import Pages.UnitPages.UnitsPage;
 import org.testng.annotations.*;
 import org.testng.asserts.SoftAssert;
 

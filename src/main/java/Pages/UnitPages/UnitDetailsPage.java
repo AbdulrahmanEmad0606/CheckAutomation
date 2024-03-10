@@ -1,4 +1,4 @@
-package Pages;
+package Pages.UnitPages;
 
 import CoreElements.Label;
 import org.openqa.selenium.By;
