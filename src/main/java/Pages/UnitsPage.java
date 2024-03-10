@@ -1,9 +1,12 @@
 package Pages;
 
+import CoreElements.Button;
 import CoreElements.Image;
 import CoreElements.Link;
+import CoreElements.TextBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.w3c.dom.Text;
 
 public class UnitsPage {
     private WebDriver driver;
@@ -15,8 +18,12 @@ public class UnitsPage {
 
     Image logo = new Image(By.className("logo-container"));
     Link addNewUnitButton=new Link(By.cssSelector(".icon.icon-add"));
-    By searchInput = By.id("filter");
-    By searchButton = By.className("search-btn");
+    TextBox searchInput =new TextBox(By.id("filter"));
+    Button searchButton = new Button(By.className("search-btn"));
+    Link unitName=new Link(By.cssSelector(".name .trigger-spinner"));
+    Button settingIcon=new Button(By.xpath("//tr[1]/td[5]"));
+    Button editButton=new Button(By.xpath("//tr[1]/td[5]/div/div/form/button"));
+    Button deleteButton=new Button(By.xpath("//*[@id=\"pagination-table\"]/tbody/tr[1]/td[5]/div/div/button[1]"));
     /*** Unit page actions***/
 
     /*** Get logo ***/
@@ -30,12 +37,36 @@ public class UnitsPage {
         addNewUnitButton.click();
         return new CreateUnitPage(driver);
     }
-    public void setSearchTerm(String searchTerm) {
-        driver.findElement(searchInput).sendKeys(searchTerm);
+
+    /*************************************************************************/
+    /***Search Feature***/
+    public void setValidSearchTerm(String searchTerm) {
+        searchInput.typeText(searchTerm);
+    }
+    public void setInvalidSearchTerm(String searchTerm) {
+        searchInput.typeText(searchTerm);
     }
 
     public void clickSearch() {
-        driver.findElement(searchButton).click();
+        searchButton.click();
     }
-
+    public String getSearchResult(){
+        return unitName.getText();
+    }
+    public boolean checkSearchResult(){
+        if(getSearchResult().contains(searchInput.getText())){
+            return true;
+        }
+        else return false;
+    }
+    /***get Edit Button***/
+    public EditUnitPage openEditPage(){
+        settingIcon.click();
+        editButton.click();
+        return new EditUnitPage(driver);
+    }
+    public void toggleActivateUnit(){
+        settingIcon.click();
+        deleteButton.click();
+    }
 }

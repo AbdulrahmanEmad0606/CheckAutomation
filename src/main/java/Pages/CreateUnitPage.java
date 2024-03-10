@@ -64,7 +64,7 @@ public class CreateUnitPage {
     }
 
     // A method that wraps the actions needed to fill the form and submit it
-    public void addUnit(String primaryName, String secondaryName, String managerName, String code, String primaryDescription, String secondaryDescription, String email, boolean isJeha) {
+    public UnitDetailsPage addUnit(String primaryName, String secondaryName, String managerName, String code, String primaryDescription, String secondaryDescription, String email, boolean isJeha) {
         enterPrimaryName(primaryName);
         enterSecondaryName(secondaryName);
         selectUnitManager(managerName);
@@ -78,5 +78,6 @@ public class CreateUnitPage {
             setRedirectionModeRepresentative();
         }
         clickSave();
+        return new UnitDetailsPage(driver);
     }
 }

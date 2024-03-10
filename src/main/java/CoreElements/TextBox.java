@@ -14,5 +14,9 @@ public class TextBox extends Element {
         highlightElements();
         webDriver.findElement(locator).sendKeys(txt);
     }
+    public void clearText(){
+        highlightElements();
+        webDriver.findElement(locator).clear();
+    }
 
 }

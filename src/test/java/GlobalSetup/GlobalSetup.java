@@ -2,6 +2,8 @@ package GlobalSetup;
 
 import CoreElements.Driver;
 import Pages.Utilities;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
@@ -15,8 +17,8 @@ public class GlobalSetup {
         utilities = new Utilities(driver);
     }
 
-    @AfterTest
-    public void closeSite() {
-        driver.tearDown();
-    }
+//    @AfterTest
+//    public void closeSite() {
+//        driver.tearDown();
+//    }
 }
