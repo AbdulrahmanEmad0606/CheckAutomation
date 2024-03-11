@@ -1,5 +1,8 @@
 package Pages.UnitPages;
 
+import CoreElements.Button;
+import CoreElements.CheckBox;
+import CoreElements.TextBox;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -11,73 +14,33 @@ public class CreateUnitPage {
     public CreateUnitPage(WebDriver driver) {
         this.driver = driver;
     }
-    private By primaryNameInput = By.id("Name");
-    private By secondaryNameInput = By.id("NameAr");
+    private TextBox primaryNameInput = new TextBox(By.id("Name"));
+    private TextBox secondaryNameInput = new TextBox(By.id("NameAr"));
     private By unitManagerSelect = By.id("SelectedUnitManager");
-    private By unitCodeInput = By.id("ShortCode");
-    private By primaryDescriptionTextarea = By.id("Description");
-    private By secondaryDescriptionTextarea = By.id("DescriptionAr");
-    private By emailInput = By.id("Email");
-    private By redirectionModeJeha = By.id("jehaRadioButton");
-    private By redirectionModeRepresentative = By.id("RepresentativeRadioButton");
+    private TextBox unitCodeInput = new TextBox(By.id("ShortCode"));
+    private TextBox primaryDescriptionTextarea =new TextBox(By.id("Description"));
+    private TextBox secondaryDescriptionTextarea= new TextBox (By.id("DescriptionAr"));
+    private TextBox emailInput =new TextBox(By.id("Email"));
+    private CheckBox redirectionModeJeha =new CheckBox(By.id("jehaRadioButton"));
+    private CheckBox redirectionModeRepresentative = new CheckBox(By.id("RepresentativeRadioButton"));
+    private Button saveButton = new Button(By.xpath(("//label[@type='submit']")));
 
-    public By saveButton = By.xpath(("//label[@type='submit']"));
-    // Methods to interact with the page
-    public void enterPrimaryName(String name) {
-        driver.findElement(primaryNameInput).sendKeys(name);
-    }
 
-    public void enterSecondaryName(String name) {
-        driver.findElement(secondaryNameInput).sendKeys(name);
-    }
-
-    public void selectUnitManager(String managerName) {
-        new Select(driver.findElement(unitManagerSelect)).selectByVisibleText(managerName);
-    }
-
-    public void enterUnitCode(String code) {
-        driver.findElement(unitCodeInput).sendKeys(code);
-    }
-
-    public void enterPrimaryDescription(String description) {
-        driver.findElement(primaryDescriptionTextarea).sendKeys(description);
-    }
-
-    public void enterSecondaryDescription(String description) {
-        driver.findElement(secondaryDescriptionTextarea).sendKeys(description);
-    }
-
-    public void enterEmail(String email) {
-        driver.findElement(emailInput).sendKeys(email);
-    }
-
-    public void setRedirectionModeJeha() {
-        driver.findElement(redirectionModeJeha).click();
-    }
-
-    public void setRedirectionModeRepresentative() {
-        driver.findElement(redirectionModeRepresentative).click();
-    }
-
-    public void clickSave() {
-        driver.findElement(saveButton).click();
-    }
-
-    // A method that wraps the actions needed to fill the form and submit it
+    /*** units Page Actions ***/
     public UnitDetailsPage addUnit(String primaryName, String secondaryName, String managerName, String code, String primaryDescription, String secondaryDescription, String email, boolean isJeha) {
-        enterPrimaryName(primaryName);
-        enterSecondaryName(secondaryName);
-        selectUnitManager(managerName);
-        enterUnitCode(code);
-        enterPrimaryDescription(primaryDescription);
-        enterSecondaryDescription(secondaryDescription);
-        enterEmail(email);
+        primaryNameInput.typeText(primaryName);
+        secondaryNameInput.typeText(secondaryName);
+        new Select(driver.findElement(unitManagerSelect)).selectByVisibleText(managerName);
+        unitCodeInput.typeText(code);
+        primaryDescriptionTextarea.typeText(primaryDescription);
+        secondaryDescriptionTextarea.typeText(secondaryDescription);
+        emailInput.typeText(email);
         if (isJeha) {
-            setRedirectionModeJeha();
+            redirectionModeJeha.click();
         } else {
-            setRedirectionModeRepresentative();
+            redirectionModeRepresentative.click();
         }
-        clickSave();
+        saveButton.click();
         return new UnitDetailsPage(driver);
     }
 }
