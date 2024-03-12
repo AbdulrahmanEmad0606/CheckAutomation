@@ -12,4 +12,7 @@ public class Label extends Element{
         highlightElements();
         return webDriver.findElement(locator).getText();
     }
+    public void click(){
+        webDriver.findElement(locator).click();
+    }
 }
