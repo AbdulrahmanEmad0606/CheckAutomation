@@ -58,7 +58,7 @@ public class Element {
 
     // Explicit wait
     public void waitExplicitly(By locator) {
-        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(20));
+        WebDriverWait wait = new WebDriverWait(webDriver, Duration.ofSeconds(30));
         wait.until(ExpectedConditions.visibilityOf(getWebDriver().findElement(locator)));
     }
 
