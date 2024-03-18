@@ -20,9 +20,7 @@ public class AddNewWorkflowTests  extends GlobalSetup {
     @BeforeTest
     public void checkLogin() {
         loginTests.testSuccessfulLogin();
-        sideMenu.openWorkflowsPage();
-        workflowsPage.openWorkflowCreationPage();
-        addWorkflowPage.FillWorkflowPrimaryData("test flow1","test flow1","Supervisor");
+        sideMenu.openWorkflowsPage().openWorkflowCreationPage().FillWorkflowPrimaryData("test flow1","test flow1","Supervisor");
     }
     @Test
     public void checkCreationWorkflowPageOpenedSuccessfully(){

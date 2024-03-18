@@ -19,8 +19,7 @@ public class EditUnitTests extends GlobalSetup {
     @BeforeTest
     public void checkLogin() {
         loginTests.testSuccessfulLogin();
-        unitsPage.openEditPage();
-        editUnitPage.editUnit(unitName,"secondary name1");
+        unitsPage.openEditPage().editUnit(unitName,"secondary name1");
     }
 
     @Test

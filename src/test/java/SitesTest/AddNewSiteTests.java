@@ -19,9 +19,7 @@ public class AddNewSiteTests extends GlobalSetup {
     @BeforeTest
     public void checkLogin(){
         loginTests.testSuccessfulLogin();
-        sideMenu.openSitesPage();
-        sitesPage.navigateToCreationPage();
-        addSitePage.createNewSite("Test Site99","موقع تجريبي","12356","2");
+        sideMenu.openSitesPage().navigateToCreationPage().createNewSite("Test Site99","موقع تجريبي","12356","2");
     }
     @Test
     public void testAddNewSite() {

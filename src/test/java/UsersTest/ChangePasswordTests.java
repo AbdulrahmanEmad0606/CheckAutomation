@@ -17,9 +17,8 @@ public class ChangePasswordTests extends GlobalSetup {
     @BeforeTest
     public void checkLogin() {
         loginTests.testSuccessfulLogin();
-        sideMenu.openUsersPage();
+        sideMenu.openUsersPage().openChangePasswordPage().changePass("123456","123456");
         usersPage.openChangePasswordPage();
-        changePasswordPage.changePass("123456","123456");
     }
 
     @Test

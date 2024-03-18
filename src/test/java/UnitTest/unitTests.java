@@ -18,9 +18,8 @@ public class unitTests extends GlobalSetup {
     @BeforeTest
     public void checkLogin() {
         loginTests.testSuccessfulLogin();
-        unitsPage.clickOnAddNewUnitBtn();
-        createUnitPage.addUnit(unitName, "abdo2", "5421012352", "CODE8595", "This is a test unit", "هذه وحدة تجريبية", "tesAbdo3@example.com", true);
-    }
+        unitsPage.clickOnAddNewUnitBtn().addUnit(unitName, "abdo2", "5421012352", "CODE8595", "This is a test unit", "هذه وحدة تجريبية", "tesAbdo3@example.com", true);
+   }
     @Test
     public void addNewUnit() {
         Assert.assertTrue(unitDetailsPage.checkCreatedUnit(unitName),"Unit not created");

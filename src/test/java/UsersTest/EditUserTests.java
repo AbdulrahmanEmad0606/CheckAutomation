@@ -20,9 +20,7 @@ public class EditUserTests extends GlobalSetup {
     @BeforeTest
     public void checkLogin() {
         loginTests.testSuccessfulLogin();
-        sideMenu.openUsersPage();
-        usersPage.openEditPage();
-        editUserPage.fillOutForm("Abdo");
+        sideMenu.openUsersPage().openEditPage().fillOutForm("Abdo");
     }
     @Test
     public void checkEdit(){

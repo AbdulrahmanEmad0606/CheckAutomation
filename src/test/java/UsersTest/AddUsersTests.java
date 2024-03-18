@@ -20,10 +20,7 @@ public class AddUsersTests extends GlobalSetup {
     @BeforeTest
     public void checkLogin() {
         loginTests.testSuccessfulLogin();
-        sideMenu.openUsersPage();
-        usersPage.openUserForm();
-        createUserPage.fillOutForm("Test User", "testuser2", "123452336", "test13@example.com", "+1234567890", "Inspector", "Unit 2");
-
+        sideMenu.openUsersPage().openUserForm().fillOutForm("Test User", "testuser2", "123452336", "test13@example.com", "+1234567890", "Inspector", "Unit 2");
     }
 
     @Test
