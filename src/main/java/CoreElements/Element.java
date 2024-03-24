@@ -63,7 +63,7 @@ public class Element {
     }
 
     public void highlightElements() {
-        JavascriptExecutor js = (JavascriptExecutor) webDriver;
-        js.executeScript("arguments[0].style.border='3px solid #00F700'", getWebDriver().findElement(locator));
+       // JavascriptExecutor js = (JavascriptExecutor) webDriver;
+       // js.executeScript("arguments[0].style.border='3px solid #00F700'", getWebDriver().findElement(locator));
     }
 }

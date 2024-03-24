@@ -8,7 +8,6 @@ public class Label extends Element{
         this.setLocator(label);
     }
     public String getLabel(){
-        waitExplicitly(locator);
         highlightElements();
         return webDriver.findElement(locator).getText();
     }

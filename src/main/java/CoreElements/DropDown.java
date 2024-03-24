@@ -42,6 +42,6 @@ public class DropDown extends Element {
         countries.selectByVisibleText(country);
         JavascriptExecutor js = (JavascriptExecutor) webDriver;
         js.executeScript("arguments[0].style.backgroundColor='#00F700'", webDriver.findElement(By.name("DateOfBirthYear")));
-
     }
+
 }
